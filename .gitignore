@@ -340,4 +340,4 @@ ASALocalRun/
 healthchecksdb
 
 #Don't show user and passwor database
-appsettings.json
+*.appsettings.json
