@@ -37,8 +37,8 @@ namespace ImoveisOnline
                     Description = "Tests for API",
                 });
             });
-
-            services.AddDbContext<mydbContext>(options => options.UseMySql("server=localhost;port=3306;database=mydb;uid=root;password=P@tr1c1a26L30M@R", Microsoft.EntityFrameworkCore.ServerVersion.Parse("5.7.33-mysql")));
+            string strCon = this.Configuration.GetConnectionString("MyDb");
+            services.AddDbContext<mydbContext>(options => options.UseMySql(strCon, Microsoft.EntityFrameworkCore.ServerVersion.Parse("5.7.33-mysql")));
 
 
         }
