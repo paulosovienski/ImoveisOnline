@@ -341,3 +341,4 @@ healthchecksdb
 
 #Don't show user and passwor database
 *.appsettings.json
+/ImoveisOnline/appsettings.json
