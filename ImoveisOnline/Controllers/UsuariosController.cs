@@ -24,7 +24,15 @@ namespace ImoveisOnline.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
         {
-            return await _context.Usuarios.ToListAsync();
+            try
+            {
+                return await _context.Usuarios.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                return Ok("lascou " + ex.Message);
+            }
+          
         }
 
         // GET: api/Usuarios/5
