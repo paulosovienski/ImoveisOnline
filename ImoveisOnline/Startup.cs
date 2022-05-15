@@ -39,9 +39,7 @@ namespace ImoveisOnline
             });
             
             string strCon = this.Configuration.GetConnectionString("MyDb");
-            services.AddDbContext<mydbContext>(options => options.UseMySql(strCon, Microsoft.EntityFrameworkCore.ServerVersion.Parse("5.7.33-mysql")));
-
-
+            services.AddDbContext<mydbContext>(options => options.UseMySql(strCon, ServerVersion.AutoDetect(strCon)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
