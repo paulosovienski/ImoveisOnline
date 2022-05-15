@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace ImoveisOnline.Models
 {
-    public partial class UsuarioRole
+    public class UsuarioRole
     {
         public int Id { get; set; }
         public string Nome { get; set; }

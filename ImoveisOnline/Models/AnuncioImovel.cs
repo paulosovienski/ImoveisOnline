@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-#nullable disable
 
 namespace ImoveisOnline.Models
 {
-    public partial class AnuncioImovel
+    public class AnuncioImovel
     {
         public AnuncioImovel()
         {

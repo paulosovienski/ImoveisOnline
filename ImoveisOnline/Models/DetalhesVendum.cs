@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace ImoveisOnline.Models
 {
-    public partial class DetalhesVendum
+    public class DetalhesVendum
     {
         public int Id { get; set; }
         public decimal ValorVenda { get; set; }

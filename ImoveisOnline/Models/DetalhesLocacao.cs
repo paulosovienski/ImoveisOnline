@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace ImoveisOnline.Models
 {
-    public partial class DetalhesLocacao
+    public class DetalhesLocacao
     {
         public int Id { get; set; }
         public DateTime DataLocacao { get; set; }

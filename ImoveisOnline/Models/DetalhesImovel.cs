@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace ImoveisOnline.Models
 {
-    public partial class DetalhesImovel
+    public class DetalhesImovel
     {
         public DetalhesImovel()
         {

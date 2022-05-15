@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace ImoveisOnline.Models
 {
-    public partial class Agendamento
+    public class Agendamento
     {
         public int Id { get; set; }
         public DateTime DiaEHora { get; set; }

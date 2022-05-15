@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ImoveisOnline.Models;
+using System.Net;
 
 namespace ImoveisOnline.Controllers
 {
@@ -30,7 +31,7 @@ namespace ImoveisOnline.Controllers
             }
             catch (Exception ex)
             {
-                return Ok("lascou " + ex.Message);
+                return BadRequest(ex.Message);
             }
           
         }
@@ -87,10 +88,18 @@ namespace ImoveisOnline.Controllers
         [HttpPost]
         public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
         {
-            _context.Usuarios.Add(usuario);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Usuarios.Add(usuario);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUsuario", new { id = usuario.Id }, usuario);
+                return CreatedAtAction("GetUsuario", new { id = usuario.Id }, usuario);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }          
         }
 
         // DELETE: api/Usuarios/5
