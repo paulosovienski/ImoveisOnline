@@ -13,9 +13,9 @@ namespace ImoveisOnline.Controllers
     [ApiController]
     public class EnderecoesController : ControllerBase
     {
-        private readonly mydbContext _context;
+        private readonly MydbContext _context;
 
-        public EnderecoesController(mydbContext context)
+        public EnderecoesController(MydbContext context)
         {
             _context = context;
         }

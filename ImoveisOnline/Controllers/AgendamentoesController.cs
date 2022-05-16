@@ -13,9 +13,9 @@ namespace ImoveisOnline.Controllers
     [ApiController]
     public class AgendamentoesController : ControllerBase
     {
-        private readonly mydbContext _context;
+        private readonly MydbContext _context;
 
-        public AgendamentoesController(mydbContext context)
+        public AgendamentoesController(MydbContext context)
         {
             _context = context;
         }

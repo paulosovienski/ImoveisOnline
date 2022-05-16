@@ -13,9 +13,9 @@ namespace ImoveisOnline.Controllers
     [ApiController]
     public class UsuarioRolesController : ControllerBase
     {
-        private readonly mydbContext _context;
+        private readonly MydbContext _context;
 
-        public UsuarioRolesController(mydbContext context)
+        public UsuarioRolesController(MydbContext context)
         {
             _context = context;
         }

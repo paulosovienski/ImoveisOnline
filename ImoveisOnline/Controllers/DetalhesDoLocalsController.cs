@@ -13,9 +13,9 @@ namespace ImoveisOnline.Controllers
     [ApiController]
     public class DetalhesDoLocalsController : ControllerBase
     {
-        private readonly mydbContext _context;
+        private readonly MydbContext _context;
 
-        public DetalhesDoLocalsController(mydbContext context)
+        public DetalhesDoLocalsController(MydbContext context)
         {
             _context = context;
         }
