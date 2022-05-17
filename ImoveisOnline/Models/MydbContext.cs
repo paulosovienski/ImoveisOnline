@@ -35,26 +35,29 @@ namespace ImoveisOnline.Models
         public virtual DbSet<Usuario> Usuarios { get; set; }
         public virtual DbSet<UsuarioRole> UsuarioRoles { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
             //if (!optionsBuilder.IsConfigured)
             //{
-            //string strCon = _configuration.GetConnectionString("MyDb");
-            //optionsBuilder.UseMySql("server=localhost;port=3306;database=mydb;uid=root;password=P@tr1c1a26L30M@R", Microsoft.EntityFrameworkCore.ServerVersion.Parse("5.7.33-mysql"));
-            //optionsBuilder.UseMySql(strCon, Microsoft.EntityFrameworkCore.ServerVersion.Parse("5.7.33-mysql"));
-            //optionsBuilder.UseMySql("server=localhost;port=3306;database=mydb;uid=root;password=P@tr1c1a26L30M@R", ServerVersion.AutoDetect(strCon));
-            //l
+            //    string strCon = _configuration.GetConnectionString("MyDb");
+                //optionsBuilder.UseMySql("server=localhost;port=3306;database=mydb;uid=root;password=P@tr1c1a26L30M@R", Microsoft.EntityFrameworkCore.ServerVersion.Parse("5.7.33-mysql"));
+            //    optionsBuilder.UseMySql(strCon, Microsoft.EntityFrameworkCore.ServerVersion.Parse("5.7.33-mysql"));
+              
+
+
             //}
-        }
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.HasDefaultSchema("mydb");
+
             modelBuilder.HasCharSet("utf8")
                 .UseCollation("utf8_general_ci");
 
             modelBuilder.Entity<Agendamento>(entity =>
             {
-                entity.ToTable("agendamento");
+                entity.ToTable("AGENDAMENTO");
 
                 entity.HasIndex(e => e.DetalhesImovelId, "fk_AGENDAMENTO_DETALHES_IMOVEL1_idx");
 
@@ -83,7 +86,7 @@ namespace ImoveisOnline.Models
 
             modelBuilder.Entity<AnuncioImovel>(entity =>
             {
-                entity.ToTable("anuncio_imovel");
+                entity.ToTable("ANUNCIO_IMOVEL");
 
                 entity.Property(e => e.Id)
                     .HasColumnType("int(11)")
@@ -100,7 +103,7 @@ namespace ImoveisOnline.Models
 
             modelBuilder.Entity<DetalhesDoLocal>(entity =>
             {
-                entity.ToTable("detalhes_do_local");
+                entity.ToTable("DETALHES_DO_LOCAL");
 
                 entity.Property(e => e.Id)
                     .HasColumnType("int(11)")
@@ -119,7 +122,7 @@ namespace ImoveisOnline.Models
 
             modelBuilder.Entity<DetalhesImovel>(entity =>
             {
-                entity.ToTable("detalhes_imovel");
+                entity.ToTable("DETALHES_IMOVEL");
 
                 entity.HasIndex(e => e.DetalhesDoLocalId, "fk_DETALHES_IMOVEL_DETALHES_DO_LOCAL1_idx");
 
@@ -213,7 +216,7 @@ namespace ImoveisOnline.Models
 
             modelBuilder.Entity<DetalhesLocacao>(entity =>
             {
-                entity.ToTable("detalhes_locacao");
+                entity.ToTable("DETALHES_LOCACAO");
 
                 entity.HasIndex(e => e.AnuncioImovelId, "fk_DETALHES_LOCACAO_ANUNCIO_IMOVEL1_idx");
 
@@ -282,7 +285,7 @@ namespace ImoveisOnline.Models
 
             modelBuilder.Entity<DetalhesVendum>(entity =>
             {
-                entity.ToTable("detalhes_venda");
+                entity.ToTable("DETALHES_VENDA");
 
                 entity.HasIndex(e => e.AnuncioImovelId, "fk_DETALHES_VENDA_ANUNCIO_IMOVEL1_idx");
 
@@ -345,7 +348,7 @@ namespace ImoveisOnline.Models
 
             modelBuilder.Entity<Endereco>(entity =>
             {
-                entity.ToTable("endereco");
+                entity.ToTable("ENDERECO");
 
                 entity.Property(e => e.Id)
                     .HasColumnType("int(11)")
@@ -374,7 +377,7 @@ namespace ImoveisOnline.Models
 
             modelBuilder.Entity<Usuario>(entity =>
             {
-                entity.ToTable("usuario");
+                entity.ToTable("USUARIO");
 
                 entity.Property(e => e.Id)
                     .HasColumnType("int(11)")
@@ -399,7 +402,7 @@ namespace ImoveisOnline.Models
 
             modelBuilder.Entity<UsuarioRole>(entity =>
             {
-                entity.ToTable("usuario_role");
+                entity.ToTable("USUARIO_ROLE");
 
                 entity.HasIndex(e => e.UsuarioId, "fk_USUARIO_ROLE_USUARIO1_idx");
 
